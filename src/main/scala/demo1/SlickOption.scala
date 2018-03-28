@@ -20,7 +20,7 @@ object SlickOption extends App {
   val logger = LoggerFactory.getLogger(getClass.getSimpleName)
   logger.info("slick test start")
   // query by condition
-  val db = new DBUtil().getDatabase()
+  val db = DBUtil.getDatabase()
   val slick_table = SlickDB.slick_table
   //创建表动作
   val createTableAction = slick_table.schema.create
@@ -35,7 +35,6 @@ object SlickOption extends App {
     UserInfo(1L, "dulei", 24),
     UserInfo(2L, "yuxin", 25),
     UserInfo(3L, "wangrui", 24)
-
   )
   val res1 = db.run(insertAction).andThen{
     case Success(_) => println("user infos inserted")
@@ -49,8 +48,4 @@ object SlickOption extends App {
     Await.result(fut, Duration.Inf).foreach(println)
   }
   printResult(res2)
-
-//  val res2 = Await.result(db.run(slick_table.filter(_.age > 25).result), Duration.Inf)
-//  val res6 = Await.result(db.run(sql"""select * from user_info where name = 'mary'""".as[(Long, String, Int)]), Duration.Inf)
-
 }

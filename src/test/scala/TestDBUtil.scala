@@ -6,5 +6,5 @@
   */
 import demo1.DBUtil
 object TestDBUtil extends  App {
-    println(new DBUtil().getDatabase().toString)
+    println(DBUtil.getDatabase().toString)
 }

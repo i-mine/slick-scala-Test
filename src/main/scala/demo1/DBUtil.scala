@@ -10,7 +10,7 @@ import slick.driver.MySQLDriver.api._
   * Date: 18-3-27
   * Desc: 
   */
-class DBUtil {
+object DBUtil {
   val file = new File("application.conf")
   val config = ConfigFactory.parseFile(file)
   val db = Database.forConfig("mysql_db")
